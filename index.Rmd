@@ -1,0 +1,70 @@
+---
+title       : Comparing Models for Mid-Atlantic Wage Data
+subtitle    : Developing Data Products PeerAssessments
+author      : yYamamotojp
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Mid-Atlantic Wage Data
+
+Wage Data Variables:
+
+```{r, echo=FALSE}
+library(ISLR)
+library(ggplot2)
+names(Wage)
+```
+
+Wage Data Record Example:
+
+```{r, echo=FALSE}
+head(Wage, 2)
+```
+
+--- .class #id 
+
+## Target and Variable
+
+Relationship Between age and wage
+
+```{r, echo=FALSE}
+qplot(age, wage, data=Wage, geom=c("point", "smooth"), method="lm")
+```
+
+--- .class #id 
+
+## Models
+
+Trying to compare modles as follow
+
+* Linear Regression: 
+
+* SVM Linear Regression:
+
+* Regression Tree:
+
+--- .class #id 
+
+## Experiment Plan
+
+### Error Metric
+
+* Root Mean Square Error: sqrt(mean((test$y - pred$y)^2))
+
+### Cross Validation 
+
+Train and Test set split size: 6:4
+
+```{r, cache=TRUE}
+set.seed(12345)
+in.train <- createDataPartition(y=Wage$wage, p=0.6, list=FALSE)
+tr.set <- Wage[in.train,]; te.set <- Wage[-in.train,]
+c(dim(tr.set), ",", dim(te.set))
+```
+
