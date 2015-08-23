@@ -14,8 +14,8 @@ shinyUI(fluidPage(
             # select model
             selectInput("sel.model",
                         label = h3("Model"),
-                        choices = list("Liner Regression" = "lm"
-                                       , "SVM Liner Regression" = "svmLinear"
+                        choices = list("Linear Regression" = "lm"
+                                       , "SVM Linear Regression" = "svmLinear"
                                        , "Regression Tree" = "rpart"),
                         selected = "lm"),
             
